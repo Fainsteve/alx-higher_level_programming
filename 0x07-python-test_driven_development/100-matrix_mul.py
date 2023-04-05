@@ -1,12 +1,35 @@
 #!/usr/bin/python3
-"""This module contain a function that multiplies two matrix"""
+"""
+This module contains a function that multiplies two matrices.
 
+Usage:
+    To use the matrix_mul function, simply import this module and call the
+    function with two matrix arguments, m_a and m_b.
+
+    Example:
+    from matrix_multiplication import matrix_mul
+    m_a = [[1, 2], [3, 4]]
+    m_b = [[5, 6], [7, 8]]
+    result = matrix_mul(m_a, m_b)
+"""
 
 def matrix_mul(m_a, m_b):
-    """matrix_mul function that multiplies two matrix
+    """
+    Multiplies two matrices and returns the resulting matrix.
+
     Args:
         m_a (list of lists): first matrix
         m_b (list of lists): second matrix
+
+    Returns:
+        list of lists: the resulting matrix after multiplying m_a and m_b
+
+    Raises:
+        TypeError: If m_a or m_b is not a list, or if any element in the
+            matrices is not an integer or float.
+        ValueError: If m_a or m_b is empty, or if the matrices cannot be
+            multiplied because the number of columns in m_a is not equal to the
+            number of rows in m_b.
     """
     if type(m_a) != list:
         raise TypeError("m_a must be a list")
@@ -49,7 +72,7 @@ def matrix_mul(m_a, m_b):
             if type(column2) != int and type(column2) != float:
                 raise TypeError("m_b should contain only integers or floats")
 
-    # Check if the multiplication is posible
+    # Check if the multiplication is possible
     if num_colum1 != num_row2:                   
         raise ValueError("m_a and m_b can't be multiplied")
 
@@ -65,8 +88,5 @@ def matrix_mul(m_a, m_b):
                 result += column_1 * m_b[k][l]
                 k += 1
             l_row.append(result)
-            l += 1
-        mul_matrix.append(l_row)
-
-    return mul_matrix
+           
 
