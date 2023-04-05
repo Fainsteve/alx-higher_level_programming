@@ -1,36 +1,34 @@
 #!/usr/bin/python3
 """
 This module contains a function that multiplies two matrices.
-
-Usage:
-    To use the matrix_mul function, simply import this module and call the
-    function with two matrix arguments, m_a and m_b.
-
-    Example:
-    from matrix_multiplication import matrix_mul
-    m_a = [[1, 2], [3, 4]]
-    m_b = [[5, 6], [7, 8]]
-    result = matrix_mul(m_a, m_b)
 """
+
+import doctest
+
 
 def matrix_mul(m_a, m_b):
     """
-    Multiplies two matrices and returns the resulting matrix.
+    matrix_mul - function that multiplies two matrices.
 
     Args:
-        m_a (list of lists): first matrix
-        m_b (list of lists): second matrix
+        m_a (list of lists): First matrix.
+        m_b (list of lists): Second matrix.
 
     Returns:
-        list of lists: the resulting matrix after multiplying m_a and m_b
+        The result of the multiplication of the two matrices as a matrix.
 
     Raises:
-        TypeError: If m_a or m_b is not a list, or if any element in the
-            matrices is not an integer or float.
-        ValueError: If m_a or m_b is empty, or if the matrices cannot be
-            multiplied because the number of columns in m_a is not equal to the
-            number of rows in m_b.
+        TypeError: If m_a or m_b is not a list.
+        ValueError: If m_a or m_b is an empty list or their rows are of different sizes.
+        TypeError: If m_a or m_b contains values that are not integers or floats.
+        ValueError: If m_a and m_b cannot be multiplied due to their sizes.
+
+    >>> matrix_mul([[1, 2], [3, 4]], [[5, 6], [7, 8]])
+    [[19, 22], [43, 50]]
+    >>> matrix_mul([[1, 2, 3], [4, 5, 6]], [[7, 8], [9, 10], [11, 12]])
+    [[58, 64], [139, 154]]
     """
+
     if type(m_a) != list:
         raise TypeError("m_a must be a list")
     if type(m_b) != list:
@@ -73,7 +71,7 @@ def matrix_mul(m_a, m_b):
                 raise TypeError("m_b should contain only integers or floats")
 
     # Check if the multiplication is possible
-    if num_colum1 != num_row2:                   
+    if num_colum1 != num_row2:
         raise ValueError("m_a and m_b can't be multiplied")
 
     mul_matrix = []
@@ -85,8 +83,5 @@ def matrix_mul(m_a, m_b):
             result = 0
             k = 0
             for column_1 in row_1:
-                result += column_1 * m_b[k][l]
-                k += 1
-            l_row.append(result)
-           
+                result +=
 
