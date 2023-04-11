@@ -1,21 +1,14 @@
 #!/usr/bin/python3
-"""Define a class Square."""
+"""This module defines a class Square with a private attribute size and public methods."""
 
 class Square:
-    """Represent a square.
+    """Represents a square."""
+    def __init__(self, size):
+        """Initializes a new square with the given size."""
+        self.__size = size
 
-    Attributes:
-        size (int): The size of the square.
-    """
-    def __init__(self, size=0):
-        """Initialize a new Square object.
+if __name__ == '__main__':
+    my_square = Square()
+    print((type(my_square), my_square.__dict__))
 
-        Args:
-            size (int): The size of the square.
-        """
-        self.size = size
-
-    def area(self):
-        """Return the area of the square."""
-        return self.size ** 2
 
